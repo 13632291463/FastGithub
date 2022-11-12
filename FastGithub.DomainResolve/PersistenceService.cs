@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -32,6 +33,16 @@ namespace FastGithub.DomainResolve
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase)]
         private partial class EndPointItemsContext : JsonSerializerContext
         {
+            public EndPointItemsContext(JsonSerializerOptions? options) : base(options)
+            {
+            }
+
+            protected override JsonSerializerOptions? GeneratedSerializerOptions => throw new NotImplementedException();
+
+            public override JsonTypeInfo? GetTypeInfo(Type type)
+            {
+                throw new NotImplementedException();
+            }
         }
 
 
